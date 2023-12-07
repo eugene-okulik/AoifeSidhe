@@ -1,4 +1,4 @@
-# Lesson2: x - y / (1 + x * y)
+# Lesson 2: x - y / (1 + x * y)
 # non-interactive
 import random
 
@@ -35,11 +35,11 @@ def display_answer(x_value, y_value, calculation_result, zero_or_not_zero, multi
     print(f"\nAnswer: {calculation_result}")  # Print the result of the operation
 
 
-# Hewe we generate random numbers for calculations.
+# Function to generate random numbers for calculations.
 def generate_numbers():
     zero_or_not_zero = random.randint(0, 1)
     x_value, y_value = 1, -1  # Divide by zero case
-    if zero_or_not_zero == 1:  # Random numbers for our calculations
+    if zero_or_not_zero == 1:
         x_value = random.randint(-1000, 1000)
         y_value = random.randint(-1000, 1000)
     return zero_or_not_zero, x_value, y_value
