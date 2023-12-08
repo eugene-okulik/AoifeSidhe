@@ -8,24 +8,22 @@ import random
 def task_solution():
     x_value, y_value = generate_numbers()
     multiplication_result = x_value * y_value
-    subtraction_result1 = x_value - y_value
-    subtraction_result2 = y_value - x_value
+    subtraction_result = x_value - y_value
     addition_result = x_value + y_value
     # Call the display_answer function with correct arguments
-    display_answer(x_value, y_value, multiplication_result, subtraction_result1, subtraction_result2, addition_result)
-    return multiplication_result, subtraction_result1, addition_result, subtraction_result2
+    display_answer(x_value, y_value, multiplication_result, subtraction_result, addition_result)
+    return multiplication_result, subtraction_result, addition_result
 
 
 # This function prints the detailed result of a calculation operations, using f-string for formatting
-def display_answer(x_value, y_value, multiplication_result, subtraction_result1,
-                   subtraction_result2, addition_result):
+def display_answer(x_value, y_value, multiplication_result, subtraction_result, addition_result):
+    subtraction_result2 = subtraction_result * -1
     print(f"Task 1\n")
-    print(f"X value: {x_value}")
-    print(f"Y value: {y_value}\n")
+    print(f"X value: {x_value}\nY value: {y_value}\n")
     print(f"Multiplication result: {multiplication_result}")
-    print(f"Subtraction result 1: {subtraction_result1}")
+    print(f"Subtraction result 1: {subtraction_result}")
     print(f"Subtraction result 2: {subtraction_result2}")
-    print(f"Addition result: {addition_result}")
+    print(f"Sum: {addition_result}")
 
 
 # Function to generate random numbers for calculations.
