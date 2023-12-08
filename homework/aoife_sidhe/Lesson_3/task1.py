@@ -18,7 +18,7 @@ def task_solution():
 # This function prints the detailed result of a calculation operations, using f-string for formatting
 def display_answer(x_value, y_value, multiplication_result, subtraction_result, addition_result):
     subtraction_result2 = subtraction_result * -1
-    print(f"Task 1\n")
+    print("Task 1\n")
     print(f"X value: {x_value}\nY value: {y_value}\n")
     print(f"Multiplication result: {multiplication_result}")
     print(f"Subtraction result 1: {subtraction_result}")

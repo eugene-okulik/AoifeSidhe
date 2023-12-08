@@ -16,7 +16,7 @@ def task_solution():
 
 # This function prints the detailed result of a calculation operations, using f-string for formatting
 def display_answer(x_value, y_value, arithmetic_mean, geometric_mean):
-    print(f"Task 3\n")
+    print("Task 3\n")
     print(f"X value: {x_value}")
     print(f"y value: {y_value}\n")
     print(f"Arithmetic mean: {arithmetic_mean}")

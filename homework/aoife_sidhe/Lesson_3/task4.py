@@ -20,7 +20,7 @@ def task_solution():
 
 # This function prints the detailed result of a calculation operations, using f-string for formatting
 def display_answer(x_value, y_value, hypotenuse, area):
-    print(f"Task 4\n")
+    print("Task 4\n")
     print(f"X value: {x_value}\nY value: {y_value}\n")
     print(f"Hypotenuse: {hypotenuse}\nArea: {area}")
 
