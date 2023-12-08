@@ -29,7 +29,7 @@ def display_answer(x_value, y_value, calculation_result, zero_or_not_zero, multi
         example_l = "VarA"
     if zero_or_not_zero == 0:
         example_l = "Var B"
-    print(f"Task2 - {example_l}\nX: {x_value}\nY: {y_value}")
+    print(f"Task 2 - {example_l}\nX: {x_value}\nY: {y_value}")
     print(f"\nOperation: (x - y) / (1 + x * y)")  # Print the operation
     print(f"It is: {subtraction_result} / {multiplication_result} ")  # Print the operation with values
     print(f"\nAnswer: {calculation_result}")  # Print the result of the operation
