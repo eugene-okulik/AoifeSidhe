@@ -1,11 +1,11 @@
-name: DarSouls-Pylint
+name: DarkSouls-Pylint
 on:
   workflow_dispatch:
 
 jobs:
   pylint:
     runs-on: ubuntu-latest
-    name: lint-test
+    name: Dark Souls Check
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
