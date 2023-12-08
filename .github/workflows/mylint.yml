@@ -1,11 +1,6 @@
 name: DarSouls-Pylint
 on:
-  push:
-    branches:
-      - '**'
-    branches-ignore:
-      - 'main'
-      - 'master'
+  workflow_dispatch:
 
 jobs:
   pylint:
