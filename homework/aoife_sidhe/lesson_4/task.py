@@ -56,7 +56,7 @@ def display_dict():
         print(f"{key_display}: {value_display}")
 
 
-print(f"\nTask C - Dictionary\n")
+print("\nTask C - Dictionary\n")
 display_dict()  # default dict
 print()
 print("Adding new key-value pair for prices_dict - i am a tuple")
@@ -105,7 +105,7 @@ my_dict['additional_items_set'].discard('apple')  # remove an item safely
 print(my_dict['additional_items_set'])
 print()
 
-print(f"Task E - Final Dictionary\n")
+print("Task E - Final Dictionary\n")
 print("Way A")
 pp = pprint.PrettyPrinter(indent=0)
 for key, value in my_dict.items():
