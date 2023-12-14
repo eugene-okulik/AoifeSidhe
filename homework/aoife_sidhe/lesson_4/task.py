@@ -62,7 +62,7 @@ print("\nTask C - Dictionary\n")
 display_dict()  # default dict
 print()
 print("Adding new key-value pair for prices_dict - i am a tuple")
-my_dict['prices_dict']['i am a tuple'] = 100  # add a new item
+my_dict['prices_dict']['(\'i am a tuple\',)'] = 100  # add a new key-value pair
 # display key and value for my_dict prices_dict apple
 print("Deleting value from prices_dict - apple")
 print()

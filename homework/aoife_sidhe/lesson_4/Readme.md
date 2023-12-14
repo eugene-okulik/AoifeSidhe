@@ -44,7 +44,8 @@ This can be **especially useful** when we are trying to debug or inspect data st
 
 
 ## Additional File
-Feel free to skip it - i created it only for myself.
+(Feel free to skip it) 
+
 **notask** - This Python script is a demonstration of handling nested dictionaries and various methods of presenting
 nested dictionaries to the user.
 
