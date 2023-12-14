@@ -49,4 +49,3 @@ for key, value in my_dict.items():
     print(f'{key.replace("_", " ")}:')
     pp.pprint(value)
 print()
-
