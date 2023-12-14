@@ -1,3 +1,5 @@
+# pylint: disable=R0801
+
 # Nested dictionary example
 import pprint
 
@@ -27,11 +29,19 @@ for formatted_key, dict_value in my_dict.items():
 print("")
 print(f"Dictionary has {len(my_dict)} keys")
 print("")
-print("Way A")
-for key in my_dict:
-    print(f'{key.replace("_", " ")}:')
-    for sub_key, sub_value in my_dict[key].items():
+# print("Way A")
+# for key in my_dict:
+#     print(f'{key.replace("_", " ")}:')
+#     for sub_key, sub_value in my_dict[key].items():
+#         print(f'  {sub_key}: {sub_value}')
+# print()
+print("Way A\n")
+for outer_key, inner_dict in my_dict.items():
+    print(f'{outer_key.replace("_", " ")}:')
+    # if isinstance(inner_dict, dict):
+    for sub_key, sub_value in inner_dict.items():
         print(f'  {sub_key}: {sub_value}')
+
 print()
 print("Way B")
 pp = pprint.PrettyPrinter(indent=0)
@@ -39,3 +49,4 @@ for key, value in my_dict.items():
     print(f'{key.replace("_", " ")}:')
     pp.pprint(value)
 print()
+

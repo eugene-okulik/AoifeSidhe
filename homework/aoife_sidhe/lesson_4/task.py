@@ -1,3 +1,5 @@
+# pylint: disable=R0801
+
 # Leeson 4
 import pprint
 
@@ -36,13 +38,13 @@ print("Task B - list")
 print(f"Current list is {my_dict['shopping_items_list']}")
 # Making a copy of current list (.copy)
 current_list_copy = my_dict['shopping_items_list'].copy()
-item_to_add_in_list = "blueberries"
-print(f"Adding a {item_to_add_in_list}")
-my_dict['shopping_items_list'].append(item_to_add_in_list)  # add item at the end
-print(f"Current list is {current_list_copy} + {item_to_add_in_list}")
+ITEM_TO_ADD_TO_THE_LIST = "blueberries"
+print(f"Adding a {ITEM_TO_ADD_TO_THE_LIST}")
+my_dict['shopping_items_list'].append(ITEM_TO_ADD_TO_THE_LIST)  # add item at the end
+print(f"Current list is {current_list_copy} + {ITEM_TO_ADD_TO_THE_LIST}")
 print(f"Current list is {my_dict['shopping_items_list']}")
-second_item = my_dict['shopping_items_list'][1]
-print(f"Removing a second item - {second_item}")
+SECOND_ITEM_TO_ADD = my_dict['shopping_items_list'][1]
+print(f"Removing a second item - {SECOND_ITEM_TO_ADD}")
 del my_dict['shopping_items_list'][1]  # remove second item
 print(my_dict['shopping_items_list'])
 print()
@@ -87,9 +89,8 @@ try:
 except KeyError:
     print("Apple was not found in the dictionary")
 
-print("Do we have a lemon key-value pair?")
-if 'lemon' in prices_dict:
-    lemon_price = (my_dict['prices_dict']['lemon'])
+if 'lemon' in my_dict['prices_dict']:
+    lemon_price = my_dict['prices_dict']['lemon']
     print(f"The price of a lemon is: ${lemon_price}")
 else:
     print("Lemon is not found in the prices dictionary.")
