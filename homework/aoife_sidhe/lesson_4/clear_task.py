@@ -315,7 +315,7 @@ def tuples_is_hard():
 def task_fun():
     """Prints the list in reverse order."""
     print("\nTask B - list")
-    print(f'Current order: {my_dict['shopping_items_list']}')
+    print(f'Current order: {my_dict["shopping_items_list"]}')
     print("shopping items list in reverse order:")
     print(my_dict['shopping_items_list'][::-1])
     print()

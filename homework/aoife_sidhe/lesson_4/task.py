@@ -357,11 +357,9 @@ def tuples_is_hard():
 
     # Check if the object is a tuple
     if isinstance(my_dict[("('i am a tuple!',)",)], tuple):
-        print(f"('i am a tuple!',): is a tuple.\n")
+        print("('i am a tuple!',): is a tuple.\n")
     else:
-        print(f"('i am a tuple!',): is not a tuple. =)\n")
+        print("('i am a tuple!',): is not a tuple.\n")
 
 
 main_menu()
-# tuples_is_hard()
-
