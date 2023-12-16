@@ -307,9 +307,9 @@ def tuples_is_hard():
                 print(f"{key_str} : {value_str}")
 
     if isinstance(my_dict[("('i am a tuple!',)",)], tuple):
-        print(f"('i am a tuple!',): is a tuple.\n")
+        print("('i am a tuple!',): is a tuple.\n")
     else:
-        print(f"('i am a tuple!',): is not a tuple. =)\n")
+        print("('i am a tuple!',): is not a tuple. =)\n")
 
 
 def task_fun():
