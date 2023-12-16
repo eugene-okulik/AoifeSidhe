@@ -1,6 +1,22 @@
 My notes:
 Dictionary is a good way to make a menu =)
 
+# pylint: disable=R0801
+to disable pylint errors
+
+print(f"{key_display}: {str(value_display)[1:-1]}")  # Print tuple values without parentheses
+
+ for key, value in type_value_all.items():
+        print(f"{key}: Class is \"{value.__name__}\"")
+
+ # The __name__ attribute in Python is a special attribute of a class or function object.
+ # It holds the name of that class or function as a string.
+
+.discard - remove an element if it is present in the set, and do nothing if the element is not present.
+
+The Python built-in range() function generates a sequence of numbers, starting from 0 by default,
+and increments by 1 (also by default), and stops before a specified number.
+
 isinstance()
 is a built-in Python function used to determine if an object is an instance of
 a specified class or data type.
@@ -38,3 +54,31 @@ It provides an iterable of the keys in the dictionary.
 values():
 Returns a view of the dictionary's values. It provides an iterable of the values in the dictionary.
 
+# devnull:
+
+  # Save a duplicate file descriptor of the standard output (usually the terminal)
+    # File descriptor 1 represents standard output (stdout)
+    standard_output = os.dup(1)
+
+    # Redirect the standard output to a null device
+    os.close(1)
+    os.open(os.devnull, os.O_RDWR)
+
+    try:
+        # Run tasks A, B, and C
+        task_a()
+        task_b()
+        task_c()
+    finally:
+        # Restore the standard output
+        os.dup2(standard_output, 1)
+
+ # isinstance example
+
+    for key, value in my_dict.items():
+        # Display ':' for all keys in the dictionary
+        if isinstance(key, str):
+            print(f'{key.replace("_", " ")}:')
+        else:
+            # If the key is not a string, convert it to string
+            print(f'{key}:')
