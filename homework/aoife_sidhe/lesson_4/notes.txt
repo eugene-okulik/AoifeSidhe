@@ -1,6 +1,11 @@
 My notes:
 Dictionary is a good way to make a menu =)
 
+It's best practice to use exceptions to handle error conditions in Python.
+This is known as "EAFP" (Easier to ask for forgiveness than permission), which means it's preferable to just try
+to do what you want and handle any problems that might arise, rather than checking for any possible problems
+ before you start.
+
 # pylint: disable=R0801
 to disable pylint errors
 
@@ -24,6 +29,14 @@ a specified class or data type.
 enumerate()
 To print elements and their positions (indexes) from a list, we could use the enumerate() function
 
+The len() function is a built-in Python function that returns the number of items in an object.
+When the object is a string, the len() function returns the number of characters in the string.
+
+list = [1, 2, 3, 4, 5]
+print(len(list))  # Output: 5
+
+string = "Hello World"
+print(len(string))  # Output: 11
 
 list - mutable
 tuple - not mutable
@@ -108,3 +121,19 @@ def main_menu():
             # options[option]():
             # This calls the function retrieved from the options dictionary based on the user's input.
             # If the user input matches a key in the options dict, this line executes the corresponding function.
+
+def print_value_and_type(key):
+    """
+    Prints the value and type of a given key from a dictionary.
+
+    :param key: The key to lookup in the dictionary.
+    :type key: Any
+    :return: None
+    """
+    value = my_dict.get(key, None)
+    print(f"{key}:", value)
+
+    if isinstance(value, tuple):
+        print(f"{key} is a tuple.\n")
+    else:
+        print(f"{key} is not a tuple, it is a {type(value)}\n")

@@ -33,19 +33,6 @@ my_dict = {
 }
 
 
-def process_option(option):
-    if option == '0':  # to exit the script
-        print("\nYou've exited the program. Have a nice day!")
-        return False
-
-    elif option in options:
-        options[option]()
-
-    else:
-        print("Invalid option. Please try again.")
-    return True
-
-
 def display_menu():
     print("\nMenu:")
     print("1 - Task A")
@@ -62,7 +49,7 @@ def handle_option(option):
     if option == '0':
         print("\nYou've exited the program. Have a nice day!")
         return False
-    elif option in options:
+    if option in options:
         options[option]()
     else:
         print("Invalid option. Please try again.")
@@ -114,16 +101,6 @@ def display_dict():
             print(f"{key_display}: {str(value_display)[1:-1]}")  # Print tuple values without parentheses
         else:
             print(f"{key_display}: {value_display}")
-
-
-def print_value_and_type(key):
-    value = my_dict.get(key, None)  # Return the value for key if key is in the dictionary, else default.
-    print(f"{key}:", value)
-
-    if isinstance(value, tuple):
-        print(f"{key} is a tuple.\n")
-    else:
-        print(f"{key} is not a tuple, it is a {type(value)}\n")
 
 
 def add_today_tomorrow_date():
@@ -363,6 +340,10 @@ def tuples_is_hard():
         if "i am a tuple" in str(key_tuple):
             # Convert tuple values to a comma-separated string without parentheses
             # check if both the key and value are tuples
+            # In this case, the if statement doesn't have a corresponding else.
+            # This means that if the condition if "i am a tuple" in str(key_tuple): is not met,
+            # no action is taken for that particular key-value pair,
+            # and the program moves to the next pair in the dictionary.
             if isinstance(key_tuple, tuple) and isinstance(tuple_val, tuple):
                 key_str = ', '.join(map(str, key_tuple))
                 # map - built-in Python function that allows to apply a specific function to every item in an iterable
@@ -394,3 +375,5 @@ options = {
 }
 
 main_menu()
+
+# print("i am a tuple" in "('i am a tuple!',)")  # This will output: True
