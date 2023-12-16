@@ -57,33 +57,22 @@ def display_menu():
     print("t - show me THAT tuple!")
     print("0 - Exit")
 
+def handle_option(option):
+    if option == '0':
+        print("\nYou've exited the program. Have a nice day!")
+        return False
+    elif option in options:
+        options[option]()
+    else:
+        print("Invalid option. Please try again.")
+    return True
 
 def main_menu():
     while True:
-        display_menu()  # This will display the menu at the start of each loop
-
-        # call the new function inside the loop
-        if not process_option(input("Choose an option: ").lower()):
+        display_menu()
+        option = input("Choose an option: ").lower()
+        if not handle_option(option):
             break
-
-        option = input("Choose an option: ").lower()  # Converted to lower case to handle 'T'
-        if option == '0':  # to exit the script
-            print("\nYou've exited the program. Have a nice day!")
-            break
-        if option in options:
-            # Call the function mapped to the chosen option
-            # If the input is not '0' and is a valid option, it calls a function associated with that option
-            # from the options dictionary.
-            options[option]()
-        else:
-            print("Invalid option. Please try again.")
-
-            # options[option]:
-            # accesses the dictionary options using the input as the key, aiming to retrieve the associated value
-            # options[option]():
-            # This calls the function retrieved from the options dictionary based on the user's input.
-            # If the user input matches a key in the options dict, this line executes the corresponding function.
-
 
 # Task A
 def task_a():
