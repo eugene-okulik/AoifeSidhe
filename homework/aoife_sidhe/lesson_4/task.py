@@ -57,6 +57,7 @@ def display_menu():
     print("t - show me THAT tuple!")
     print("0 - Exit")
 
+
 def handle_option(option):
     if option == '0':
         print("\nYou've exited the program. Have a nice day!")
@@ -67,12 +68,14 @@ def handle_option(option):
         print("Invalid option. Please try again.")
     return True
 
+
 def main_menu():
     while True:
         display_menu()
         option = input("Choose an option: ").lower()
         if not handle_option(option):
             break
+
 
 # Task A
 def task_a():
@@ -123,13 +126,7 @@ def print_value_and_type(key):
         print(f"{key} is not a tuple, it is a {type(value)}\n")
 
 
-def task_c():
-    print("\nTask C - Dictionary\n")
-    display_dict()  # default dict
-    print()
-    print("Adding new key-value pairs for my_dict")
-    print()
-
+def add_today_tomorrow_date():
     today_date = (2023, 12, 16)
     tomorrow_date = (2023, 12, 17)
 
@@ -137,6 +134,8 @@ def task_c():
     my_dict[("Am i a tuple?",)] = today_date, tomorrow_date
     my_dict.update({'tomorrow_date': tomorrow_date})
 
+
+def add_two_tuples():
     for key in [("Am i a tuple?",), 'tomorrow_date']:
         value = my_dict.get(key)
         if value is not None:
@@ -146,6 +145,8 @@ def task_c():
             else:
                 print(f"{key} is not a tuple, it is a {type(value).__name__}\n")
 
+
+def add_requested_tuple():
     # Adding a tuple to prices_dict
     print("Add a requested tuple from the task")
     my_dict['prices_dict']["('i am a tuple',)"] = (8, 13, 21, 34, 55)
@@ -161,6 +162,28 @@ def task_c():
         else:
             print(f"{key} is not found in prices_dict.")
 
+
+def type_of_keys():
+    print("Types of Keys in my_dict are:")
+    type_value_all = {str(key).replace('_', ' '): type(my_dict[key]) for key in my_dict}
+    print()
+    for key, value in type_value_all.items():
+        print(f"{key}: Class is \"{value.__name__}\"")
+        # The __name__ attribute in Python is a special attribute of a class or function object.
+        # It holds the name of that class or function as a string.
+
+
+def task_c():
+    print("\nTask C - Dictionary\n")
+    display_dict()  # default dict
+    print()
+    print("Adding new key-value pairs for my_dict")
+    print()
+
+    add_today_tomorrow_date()
+    add_two_tuples()
+    add_requested_tuple()
+
     # print("Am i a tuple?:", my_dict[("Am i a tuple?",)])
     # print("tomorrow date:", my_dict['tomorrow_date'])
 
@@ -169,13 +192,8 @@ def task_c():
     # print("\n Types")
     # type_value_ok = {key: type(my_dict[key]) for key in keys_to_check}
     # print(type_value_ok)
-    print("Types of Keys in my_dict are:")
-    type_value_all = {str(key).replace('_', ' '): type(my_dict[key]) for key in my_dict}
-    print()
-    for key, value in type_value_all.items():
-        print(f"{key}: Class is \"{value.__name__}\"")
-        # The __name__ attribute in Python is a special attribute of a class or function object.
-        # It holds the name of that class or function as a string.
+
+    type_of_keys()
 
     # display key and value for my_dict prices_dict apple
     print("\nLet's check current value from prices_dict - apple")
