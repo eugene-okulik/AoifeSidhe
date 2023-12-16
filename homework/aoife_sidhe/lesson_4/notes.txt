@@ -1,0 +1,40 @@
+My notes:
+Dictionary is a good way to make a menu =)
+
+isinstance()
+is a built-in Python function used to determine if an object is an instance of
+a specified class or data type.
+
+enumerate()
+To print elements and their positions (indexes) from a list, we could use the enumerate() function
+
+
+list - mutable
+tuple - not mutable
+
+Some useful dictionary methods are clear(), copy(), get(), items(), keys(), values()
+
+clear()
+This method removes all items from the dictionary, effectively making it empty.
+It doesn't return any value; it just modifies the original dictionary in place.
+
+copy():
+Creates a shallow copy of the dictionary.
+The original dictionary and the copy are separate, but the objects within them are still references to the same objects.
+
+get(key, default=None):
+Returns the value associated with the specified key.
+If the key is not found, it returns the default value (which is None if not specified).
+
+items():
+Returns a view of the dictionary's key-value pairs as tuples.
+It can be useful for iterating over the items in the dictionary.
+returns a view object that displays a list of tuples containing the key-value pairs of a dictionary.
+
+keys():
+Returns a view of the dictionary's keys.
+It provides an iterable of the keys in the dictionary.
+
+values():
+Returns a view of the dictionary's values. It provides an iterable of the values in the dictionary.
+

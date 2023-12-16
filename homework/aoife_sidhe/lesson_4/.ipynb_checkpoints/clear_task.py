@@ -1,20 +1,20 @@
 # pylint: disable=R0801
 
 # Leeson 4
+
+# Import necessary libraries
 import pprint
 import datetime
 import os
 
-# Get the current date
+# Get the current date and time
+# noinspection DuplicatedCode
 now = datetime.datetime.now()
 
-# List: Represents the shopping items
+# Define initial data
 shopping_items_list = ['apple', 'banana', 'orange', 'apple', 'mango', 'lemon']
-# Tuple: Represents the quantities of each item
 quantities_tuple = (5, 3, 4, 2, 5)  # holds a tuple. =)
-# Set: Represents additional items to consider
 additional_items_set = {'mango', 'pineapple', 'banana', 'apple', 'peach'}
-# Dictionary: Represents prices of items
 prices_dict = {
     'mango': 1.3,
     'apple': 1.5,
@@ -24,6 +24,7 @@ prices_dict = {
     'orange': 2.0,
 }
 
+# Dictionary with all the data
 my_dict = {
     'shopping_items_list': shopping_items_list,
     'quantities_tuple': quantities_tuple,
@@ -33,7 +34,7 @@ my_dict = {
 
 
 def main_menu():
-    # Dictionary to map options to functions
+    """Displays the main menu and calls the respective function based on user input."""
     options = {
         '1': task_a,
         '2': task_b,
@@ -42,9 +43,9 @@ def main_menu():
         '5': task_e_way_a,
         '6': task_e_way_b,
         't': tuples_is_hard,
-        # '0': exit  # To exit from the application - not working
-        # exit action is now handled separately after this dictionary
+        'f': task_fun,
     }
+
     while True:
         print("\nMenu:")
         print("1 - Task A")
@@ -53,60 +54,53 @@ def main_menu():
         print("4 - Task D")
         print("5 - Task E - Way A")
         print("6 - Task E - Way B")
-        print("t - show me THAT tuple!")
+        print("t - Show me THAT tuple!")
+        print("f - Prints the list in reverse order.")
         print("0 - Exit")
 
-        option = input("Choose an option: ").lower()  # Converted to lower case to handle 'T'
-        if option == '0':  # to exit the script
+        option = input("Choose an option: ").lower()
+        if option == '0':
             print("\nYou've exited the program. Have a nice day!")
             break
         elif option in options:
-            # Call the function mapped to the chosen option
-            # If the input is not '0' and is a valid option, it calls a function associated with that option
-            # from the options dictionary.
             options[option]()
         else:
             print("Invalid option. Please try again.")
 
-            # options[option]:
-            # accesses the dictionary options using the input as the key, aiming to retrieve the associated value
-            # options[option]():
-            # This calls the function retrieved from the options dictionary based on the user's input.
-            # If the user input matches a key in the options dict, this line executes the corresponding function.
-
 
 # Task A
+# noinspection DuplicatedCode
 def task_a():
+    """Displays the last element from the quantities tuple."""
     print()
     print("Task A - tuple")
     print("last element of the tuple:")
-    print(my_dict['quantities_tuple'][-1])  # print last element of the tuple
+    print(my_dict['quantities_tuple'][-1])
     print()
 
 
 # Task B
 def task_b():
+    """'Demonstrates operations on a list."""
     print()
     print("Task B - list")
     print(f"Current list is {my_dict['shopping_items_list']}")
-    # Making a copy of current list (.copy)
     current_list_copy = my_dict['shopping_items_list'].copy()
     ITEM_TO_ADD_TO_THE_LIST = "blueberries"
     print(f"Adding a {ITEM_TO_ADD_TO_THE_LIST}")
-    my_dict['shopping_items_list'].append(ITEM_TO_ADD_TO_THE_LIST)  # add item at the end
+    my_dict['shopping_items_list'].append(ITEM_TO_ADD_TO_THE_LIST)
     print(f"Current list is {current_list_copy} + {ITEM_TO_ADD_TO_THE_LIST}")
     print(f"Current list is {my_dict['shopping_items_list']}")
     SECOND_ITEM_TO_ADD = my_dict['shopping_items_list'][1]
     print(f"Removing a second item - {SECOND_ITEM_TO_ADD}")
-    del my_dict['shopping_items_list'][1]  # remove second item
+    del my_dict['shopping_items_list'][1]
     print(my_dict['shopping_items_list'])
     print()
 
 
 # Task C
-# The .items() method returns a view object that displays a list of tuples
-# containing the key-value pairs of a dictionary.
 def display_dict():
+    """Prints the key-value pairs from a dictionary."""
     for key_display, value_display in my_dict['prices_dict'].items():
         if isinstance(value_display, tuple):
             print(f"{key_display}: {str(value_display)[1:-1]}")  # Print tuple values without parentheses
@@ -115,7 +109,8 @@ def display_dict():
 
 
 def print_value_and_type(key):
-    value = my_dict.get(key, None)  # Return the value for key if key is in the dictionary, else default.
+    """Prints the key-value pair and its type from a dictionary."""
+    value = my_dict.get(key, None)
     print(f"{key}:", value)
 
     if isinstance(value, tuple):
@@ -124,24 +119,24 @@ def print_value_and_type(key):
         print(f"{key} is not a tuple, it is a {type(value)}\n")
 
 
+# noinspection DuplicatedCode
 def task_c():
+    """Performs operations on a dictionary and demonstrates its usage."""
     print("\nTask C - Dictionary\n")
-    display_dict()  # default dict
-    print()
+    display_dict()
     print("Adding new key-value pairs for my_dict")
     print()
 
     today_date = (2023, 12, 16)
     tomorrow_date = (2023, 12, 17)
 
-    # my_dict[("i am a tuple!",)] = (2023, 12, 16)
     my_dict[("Am i a tuple?",)] = today_date, tomorrow_date
     my_dict.update({'tomorrow_date': tomorrow_date})
 
     for key in [("Am i a tuple?",), 'tomorrow_date']:
         value = my_dict.get(key)
         if value is not None:
-            print(f"{key}: {str(value)[1:-1]}")  # prints the tuple value without parentheses
+            print(f"{key}: {str(value)[1:-1]}")
             if isinstance(value, tuple):
                 print(f"{key} is a tuple.\n")
             else:
@@ -151,10 +146,10 @@ def task_c():
     print("Add a requested tuple from the task")
     my_dict['prices_dict']["('i am a tuple',)"] = (8, 13, 21, 34, 55)
     for key in ["('i am a tuple',)"]:
-        value = my_dict['prices_dict'].get(key)  # Return the value for key if key is in the dictionary, else default.
+        value = my_dict['prices_dict'].get(key)
         if value is not None:
             if isinstance(value, tuple):
-                print(f"\n{key}: {str(value)[1:-1]}")  # prints the tuple value without parentheses
+                print(f"\n{key}: {str(value)[1:-1]}")
                 print(f"{key} is a tuple. Wow!\n")
             else:
                 print(f"{key}:", value)
@@ -162,26 +157,15 @@ def task_c():
         else:
             print(f"{key} is not found in prices_dict.")
 
-    # print("Am i a tuple?:", my_dict[("Am i a tuple?",)])
-    # print("tomorrow date:", my_dict['tomorrow_date'])
-
-    # Check if all the above entries in dictionary are tuples
-    # keys_to_check = [("i am a tuple!",), ("Am i a tuple?",), 'tomorrow_date', 'additional_items_set']
-    # print("\n Types")
-    # type_value_ok = {key: type(my_dict[key]) for key in keys_to_check}
-    # print(type_value_ok)
     print("Types of Keys in my_dict are:")
     type_value_all = {str(key).replace('_', ' '): type(my_dict[key]) for key in my_dict}
     print()
     for key, value in type_value_all.items():
         print(f"{key}: Class is \"{value.__name__}\"")
-        # The __name__ attribute in Python is a special attribute of a class or function object.
-        # It holds the name of that class or function as a string.
 
-    # display key and value for my_dict prices_dict apple
     print("\nLet's check current value from prices_dict - apple")
     for key in ['apple']:
-        value = my_dict['prices_dict'].get(key)  # Return the value for key if key is in the dictionary, else default.
+        value = my_dict['prices_dict'].get(key)
         if value is not None:
             print(f"{key}:", value)
         else:
@@ -193,21 +177,18 @@ def task_c():
 
     print("Deleting value from prices_dict - apple")
     print()
-    # del my_dict['prices_dict']['apple']  # delete an item
-    print('Current prices_dict')
-    my_dict['prices_dict'].pop('apple', None)  # delete an item safely
-    # We use dict.pop() function which removes a key-value pair and returns the value.
-    # If the key doesn't exist, it doesn't raise error if we provide a default value.
-    display_dict()  # final dict
 
-    # some work with dictionary
+    print('Current prices_dict')
+    my_dict['prices_dict'].pop('apple', None)
+    display_dict()
+
     print()
     print("Checks!")
     print()
     print("Checking if apple was deleted")
-    # Retrieving the value of 'apple' from prices_dict in my_dict
+
     apple_price = my_dict['prices_dict'].get('apple', 'Not available')
-    # .get method will return a default value if the key does not exist in the dictionary.
+
     print(f"The price of an apple is: {apple_price}")
     print("Checking if we have a banana")
     banana_price = my_dict['prices_dict'].get('banana', 'Not available')
@@ -227,67 +208,58 @@ def task_c():
         print("Lemon is not found in the prices dictionary.\n")
 
 
+# noinspection DuplicatedCode
 def task_d():
+    """Performs operations on a set."""
     print(f"\nTask D\nSet is: {my_dict['additional_items_set']}")
-    my_dict['additional_items_set'].add("blueberries")  # add a new item
+    my_dict['additional_items_set'].add("blueberries")
     if 'lemon' in my_dict['additional_items_set']:
         my_dict['additional_items_set'].remove('lemon')
     print(my_dict['additional_items_set'])
-    # my_dict['additional_items_set'].remove('apple')  # remove an item
-    my_dict['additional_items_set'].discard('apple')  # remove an item safely
-    # .discard - remove an element if it is present in the set, and do nothing if the element is not present.
+    my_dict['additional_items_set'].discard('apple')
     print(my_dict['additional_items_set'])
     print()
 
 
 def task_e_way_a():
-    # Save a duplicate file descriptor of the standard output (usually the terminal)
-    # File descriptor 1 represents standard output (stdout)
+    """Demonstrates the first way of completing task E - to display a dictionary"""
+
     standard_output = os.dup(1)
 
-    # Redirect the standard output to a null device
     os.close(1)
     os.open(os.devnull, os.O_RDWR)
 
     try:
-        # Run tasks A, B, and C
         task_a()
         task_b()
         task_c()
     finally:
-        # Restore the standard output
         os.dup2(standard_output, 1)
 
     print("\nTask E - Final Dictionary\n")
     print("Way A")
     pp = pprint.PrettyPrinter(indent=0)
     for key, value in my_dict.items():
-        # Display ':' for all keys in the dictionary
         if isinstance(key, str):
             print(f'{key.replace("_", " ")}:')
         else:
-            # If the key is not a string, convert it to string
             print(f'{key}:')
         pp.pprint(value)
     print()
 
 
 def task_e_way_b():
-    # Save a duplicate file descriptor of the standard output (usually the terminal)
-    # File descriptor 1 represents standard output (stdout)
+    """Demonstrates the second way of completing task E - to display a dictionary"""
     standard_output = os.dup(1)
 
-    # Redirect the standard output to a null device
     os.close(1)
     os.open(os.devnull, os.O_RDWR)
 
     try:
-        # Run tasks A, B, and C
         task_a()
         task_b()
         task_c()
     finally:
-        # Restore the standard output
         os.dup2(standard_output, 1)
 
     print("\nWay B - very complex way for the cool look =)")
@@ -297,17 +269,10 @@ def task_e_way_b():
         else:
             formatted_key = str(key_mydict)
 
-        # If the value is a tuple, then convert to string, remove parentheses and strip spaces
-        # if isinstance(dict_value, tuple):
-        #     formatted_value = str(dict_value)[1:-1].replace(" ", "")
-
-        # If the value is a tuple, then convert to string and remove parentheses
         if isinstance(dict_value, tuple):
             formatted_value = ', '.join(map(str, dict_value))
-        # Checks if the value is a other collection, Converts each item to string, joins with commas.
         elif isinstance(dict_value, (set, list)):
             formatted_value = ', '.join(str(item) for item in dict_value)
-        # If the value is another dictionary, it prints the sub dictionary in a formatted way.
         elif isinstance(dict_value, dict):
             print(f'{formatted_key}:')
             for sub_key, sub_value in dict_value.items():
@@ -318,17 +283,13 @@ def task_e_way_b():
 
         else:
             formatted_value = dict_value
-            # if the value is any other data type (such as a string or numeric value),
-            # the else clause handles this by directly assigning dict_value to formatted_value.
 
         print(f'{formatted_key}: {formatted_value}')
 
 
 def tuples_is_hard():
+    """Displays the current date and time in a tuple format."""
     print()
-    # Creating a tuple with several values
-    # my_tuple = (16, 'zebra', 127, 3, 9)
-    # current_date_time = (now.year, now.month, now.day, now.hour, now.minute)
     cool_year = f"Current year is {now.year}"
     cool_month = f"Current month is {now.month}"
     cool_day = f"Current day is {now.day}"
@@ -336,32 +297,29 @@ def tuples_is_hard():
     cool_minute = f"Current minute is {now.minute}"
     current_date_time = (cool_year, cool_month, cool_day, cool_hour, cool_minute)
 
-    # Assigning my_tuple to the key ("i am a tuple!",) in my_dict
     my_dict[("('i am a tuple!',)",)] = current_date_time
 
-    # Printing the key and its value if the key as a string contains "i am a tuple"
     for key_tuple, tuple_val in my_dict.items():
-        # It checks if the string representation of the key contains the phrase "i am a tuple"
-        # using if "i am a tuple" in str(key).
         if "i am a tuple" in str(key_tuple):
-            # Convert tuple values to a comma-separated string without parentheses
-            # check if both the key and value are tuples
             if isinstance(key_tuple, tuple) and isinstance(tuple_val, tuple):
                 key_str = ', '.join(map(str, key_tuple))
-                # map - built-in Python function that allows to apply a specific function to every item in an iterable
-                value_str = ', '.join(str(val) for val in tuple_val)  # Corrected here
-                # map(str, key) and map(str, value) are used to convert each element in the key tuple and value tuple
-                # into strings, respectively
-
+                value_str = ', '.join(str(val) for val in tuple_val)
                 print(f"{key_str} : {value_str}")
 
-    # Check if the object is a tuple
     if isinstance(my_dict[("('i am a tuple!',)",)], tuple):
         print(f"('i am a tuple!',): is a tuple.\n")
     else:
         print(f"('i am a tuple!',): is not a tuple. =)\n")
 
 
-main_menu()
-# tuples_is_hard()
+def task_fun():
+    """Prints the list in reverse order."""
+    print("\nTask B - list")
+    print(f'Current order: {my_dict['shopping_items_list']}')
+    print("shopping items list in reverse order:")
+    print(my_dict['shopping_items_list'][::-1])
+    print()
 
+
+# Start the program
+main_menu()

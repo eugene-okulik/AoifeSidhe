@@ -2,6 +2,7 @@
 
 # Nested dictionary example
 import pprint
+import math
 
 my_dict = {
     'outer_key1': {
@@ -49,3 +50,16 @@ for key, value in my_dict.items():
     print(f'{key.replace("_", " ")}:')
     pp.pprint(value)
 print()
+
+
+# map - built-in Python function that allows to apply a specific function to every item in an iterable
+
+def square_root(num):
+    return int(math.sqrt(num))
+
+
+numbers = [1, 4, 9, 16]
+squared = list(map(square_root, numbers))
+
+print(numbers)
+print(squared)  # [1.0, 2.0, 3.0, 4.0]
