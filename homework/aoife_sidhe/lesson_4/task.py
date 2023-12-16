@@ -374,6 +374,6 @@ options = {
     # exit action is now handled separately after this dictionary
 }
 
-main_menu()
-
 # print("i am a tuple" in "('i am a tuple!',)")  # This will output: True
+
+main_menu()
