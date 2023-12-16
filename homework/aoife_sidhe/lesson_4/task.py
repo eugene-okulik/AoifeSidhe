@@ -1,6 +1,7 @@
 # pylint: disable=R0801
+# pylint: disable=C0206
 
-# Leeson 4
+# Lesson 4
 import pprint
 import datetime
 import os
@@ -32,35 +33,44 @@ my_dict = {
 }
 
 
+def process_option(option):
+    if option == '0':  # to exit the script
+        print("\nYou've exited the program. Have a nice day!")
+        return False
+
+    elif option in options:
+        options[option]()
+
+    else:
+        print("Invalid option. Please try again.")
+    return True
+
+
+def display_menu():
+    print("\nMenu:")
+    print("1 - Task A")
+    print("2 - Task B")
+    print("3 - Task C")
+    print("4 - Task D")
+    print("5 - Task E - Way A")
+    print("6 - Task E - Way B")
+    print("t - show me THAT tuple!")
+    print("0 - Exit")
+
+
 def main_menu():
-    # Dictionary to map options to functions
-    options = {
-        '1': task_a,
-        '2': task_b,
-        '3': task_c,
-        '4': task_d,
-        '5': task_e_way_a,
-        '6': task_e_way_b,
-        't': tuples_is_hard,
-        # '0': exit  # To exit from the application - not working
-        # exit action is now handled separately after this dictionary
-    }
     while True:
-        print("\nMenu:")
-        print("1 - Task A")
-        print("2 - Task B")
-        print("3 - Task C")
-        print("4 - Task D")
-        print("5 - Task E - Way A")
-        print("6 - Task E - Way B")
-        print("t - show me THAT tuple!")
-        print("0 - Exit")
+        display_menu()  # This will display the menu at the start of each loop
+
+        # call the new function inside the loop
+        if not process_option(input("Choose an option: ").lower()):
+            break
 
         option = input("Choose an option: ").lower()  # Converted to lower case to handle 'T'
         if option == '0':  # to exit the script
             print("\nYou've exited the program. Have a nice day!")
             break
-        elif option in options:
+        if option in options:
             # Call the function mapped to the chosen option
             # If the input is not '0' and is a valid option, it calls a function associated with that option
             # from the options dictionary.
@@ -91,13 +101,13 @@ def task_b():
     print(f"Current list is {my_dict['shopping_items_list']}")
     # Making a copy of current list (.copy)
     current_list_copy = my_dict['shopping_items_list'].copy()
-    ITEM_TO_ADD_TO_THE_LIST = "blueberries"
-    print(f"Adding a {ITEM_TO_ADD_TO_THE_LIST}")
-    my_dict['shopping_items_list'].append(ITEM_TO_ADD_TO_THE_LIST)  # add item at the end
-    print(f"Current list is {current_list_copy} + {ITEM_TO_ADD_TO_THE_LIST}")
+    item_to_add_to_the_list = "blueberries"
+    print(f"Adding a {item_to_add_to_the_list}")
+    my_dict['shopping_items_list'].append(item_to_add_to_the_list)  # add item at the end
+    print(f"Current list is {current_list_copy} + {item_to_add_to_the_list}")
     print(f"Current list is {my_dict['shopping_items_list']}")
-    SECOND_ITEM_TO_ADD = my_dict['shopping_items_list'][1]
-    print(f"Removing a second item - {SECOND_ITEM_TO_ADD}")
+    second_item_to_add = my_dict['shopping_items_list'][1]
+    print(f"Removing a second item - {second_item_to_add}")
     del my_dict['shopping_items_list'][1]  # remove second item
     print(my_dict['shopping_items_list'])
     print()
@@ -361,5 +371,19 @@ def tuples_is_hard():
     else:
         print("('i am a tuple!',): is not a tuple.\n")
 
+
+# Moved the options dictionary to the global scope
+# Dictionary to map options to functions
+options = {
+    '1': task_a,
+    '2': task_b,
+    '3': task_c,
+    '4': task_d,
+    '5': task_e_way_a,
+    '6': task_e_way_b,
+    't': tuples_is_hard
+    # '0': exit  # To exit from the application - not working
+    # exit action is now handled separately after this dictionary
+}
 
 main_menu()

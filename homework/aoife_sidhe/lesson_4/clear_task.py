@@ -1,6 +1,7 @@
 # pylint: disable=R0801
+# pylint: disable=C0206
 
-# Leeson 4
+# Lesson 4
 
 # Import necessary libraries
 import pprint
@@ -62,7 +63,7 @@ def main_menu():
         if option == '0':
             print("\nYou've exited the program. Have a nice day!")
             break
-        elif option in options:
+        if option in options:
             options[option]()
         else:
             print("Invalid option. Please try again.")
@@ -86,13 +87,13 @@ def task_b():
     print("Task B - list")
     print(f"Current list is {my_dict['shopping_items_list']}")
     current_list_copy = my_dict['shopping_items_list'].copy()
-    ITEM_TO_ADD_TO_THE_LIST = "blueberries"
-    print(f"Adding a {ITEM_TO_ADD_TO_THE_LIST}")
-    my_dict['shopping_items_list'].append(ITEM_TO_ADD_TO_THE_LIST)
-    print(f"Current list is {current_list_copy} + {ITEM_TO_ADD_TO_THE_LIST}")
+    item_to_add_to_the_list = "blueberries"
+    print(f"Adding a {item_to_add_to_the_list}")
+    my_dict['shopping_items_list'].append(item_to_add_to_the_list)
+    print(f"Current list is {current_list_copy} + {item_to_add_to_the_list}")
     print(f"Current list is {my_dict['shopping_items_list']}")
-    SECOND_ITEM_TO_ADD = my_dict['shopping_items_list'][1]
-    print(f"Removing a second item - {SECOND_ITEM_TO_ADD}")
+    second_item_to_add = my_dict['shopping_items_list'][1]
+    print(f"Removing a second item - {second_item_to_add}")
     del my_dict['shopping_items_list'][1]
     print(my_dict['shopping_items_list'])
     print()
