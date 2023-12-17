@@ -285,37 +285,53 @@ def task_e_way_b():
         os.dup2(standard_output, 1)
 
     print("\nWay B - very complex way for the cool look =)")
+    # Now we start a FOR loop. In each iteration of this loop,
+    # a key-value pair from our dictionary 'my_dict' is considered.
+    # The 'items' method of the dictionary is used,
+    # which returns a list of tuples where each tuple is a key-value pair.
     for key_mydict, dict_value in my_dict.items():  # loop
+        # Formatting the key
+        # Check if the key is a string.
+        # This is done using the 'isinstance' function which checks if a variable is of a specific type.
         if isinstance(key_mydict, str):
+            # replace the underscores in it with spaces.
             formatted_key = key_mydict.replace('_', ' ')
         else:
-            formatted_key = str(key_mydict)
+            formatted_key = str(key_mydict)  # If key is not a string, convert it to a string.
 
         # If the value is a tuple, then convert to string, remove parentheses and strip spaces
         # if isinstance(dict_value, tuple):
         #     formatted_value = str(dict_value)[1:-1].replace(" ", "")
 
-        # If the value is a tuple, then convert to string and remove parentheses
-        if isinstance(dict_value, tuple):
-            formatted_value = ', '.join(map(str, dict_value))
-        # Checks if the value is a other collection, Converts each item to string, joins with commas.
-        elif isinstance(dict_value, (set, list)):
-            formatted_value = ', '.join(str(item) for item in dict_value)
-        # If the value is another dictionary, it prints the sub dictionary in a formatted way.
-        elif isinstance(dict_value, dict):
-            print(f'{formatted_key}:')
+        # Handle dictionary value
+        # Now we turn to the value. We check if it's a dictionary.
+        # If yes, we will handle it differently from other types of values.
+        if isinstance(dict_value, dict):
+            print(f'{formatted_key}:')  # Print the key followed by a colon
+            # Since the value is a dictionary, we will extract its key-value pairs as well.
             for sub_key, sub_value in dict_value.items():
+                # If the sub_value is a tuple, convert it into a comma-separated string.
                 if isinstance(sub_value, tuple):
                     sub_value = ', '.join(map(str, sub_value))
-                    print(f'  {sub_key}: {sub_value}')
-                continue
+                # Print the sub_key and sub_value
+                print(f'  {sub_key}: {sub_value}')
 
         else:
-            formatted_value = dict_value
-            # if the value is any other data type (such as a string or numeric value),
-            # the else clause handles this by directly assigning dict_value to formatted_value.
-
-        print(f'{formatted_key}: {formatted_value}')
+            # If the value is not a dictionary, we need to check what kind of value it is.
+            # Here, we are checking if it is a tuple.
+            # Handle non-dictionary values
+            if isinstance(dict_value, tuple):
+                # If the value is tuple, convert it into a comma-separated string
+                formatted_value = ', '.join(map(str, dict_value))
+            # Check if it is a set or a list
+            elif isinstance(dict_value, set) or isinstance(dict_value, list):
+                # If the value is a set or a list, convert each element into string and join with commas.
+                formatted_value = ', '.join([str(item) for item in dict_value])
+            else:
+                # If the value is neither a dictionary nor a tuple oder list or set, just assign it to formatted_value.
+                formatted_value = dict_value
+            # Print the key with its corresponding formatted value.
+            print(f'{formatted_key}: {formatted_value}')
 
 
 def tuples_is_hard():

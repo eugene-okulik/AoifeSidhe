@@ -288,15 +288,14 @@ def task_e_way_a():
         pp.pprint(value)
     print()
 
-
 def task_e_way_b():
     """
     Executes tasks A, B, and C, redirecting standard output to os.devnull temporarily.
     After the tasks are completed, the standard output is restored
     Also prints the final dictionary in a formatted manner - B.
     """
-    standard_output = os.dup(1)
 
+    standard_output = os.dup(1)
     os.close(1)
     os.open(os.devnull, os.O_RDWR)
 
@@ -308,30 +307,31 @@ def task_e_way_b():
     finally:
         os.dup2(standard_output, 1)
 
+    # Printing the final dictionary
     print("\nWay B - very complex way for the cool look =)")
     for key_mydict, dict_value in my_dict.items():
+        # Formatting the key
         if isinstance(key_mydict, str):
             formatted_key = key_mydict.replace('_', ' ')
         else:
             formatted_key = str(key_mydict)
 
-        if isinstance(dict_value, tuple):
-            formatted_value = ', '.join(map(str, dict_value))
-        elif isinstance(dict_value, (set, list)):
-            formatted_value = ', '.join(str(item) for item in dict_value)
-        elif isinstance(dict_value, dict):
+        # Handle dictionary value
+        if isinstance(dict_value, dict):
             print(f'{formatted_key}:')
             for sub_key, sub_value in dict_value.items():
                 if isinstance(sub_value, tuple):
                     sub_value = ', '.join(map(str, sub_value))
-                    print(f'  {sub_key}: {sub_value}')
-                continue
-
+                print(f'  {sub_key}: {sub_value}')
         else:
-            formatted_value = dict_value
-
-        print(f'{formatted_key}: {formatted_value}')
-
+            # Handle non-dictionary values
+            if isinstance(dict_value, tuple):
+                formatted_value = ', '.join(map(str, dict_value))
+            elif isinstance(dict_value, set) or isinstance(dict_value, list):
+                formatted_value = ', '.join([str(item) for item in dict_value])
+            else:
+                formatted_value = dict_value
+            print(f'{formatted_key}: {formatted_value}')
 
 def tuples_is_hard():
     """

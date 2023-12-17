@@ -26,6 +26,9 @@ isinstance()
 is a built-in Python function used to determine if an object is an instance of
 a specified class or data type.
 
+map()
+шы ф built-in Python function that allows to apply a specific function to every item in an iterable
+
 enumerate()
 To print elements and their positions (indexes) from a list, we could use the enumerate() function
 
