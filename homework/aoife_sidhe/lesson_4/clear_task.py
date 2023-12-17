@@ -288,6 +288,7 @@ def task_e_way_a():
         pp.pprint(value)
     print()
 
+
 def task_e_way_b():
     """
     Executes tasks A, B, and C, redirecting standard output to os.devnull temporarily.
@@ -332,6 +333,7 @@ def task_e_way_b():
             else:
                 formatted_value = dict_value
             print(f'{formatted_key}: {formatted_value}')
+
 
 def tuples_is_hard():
     """
