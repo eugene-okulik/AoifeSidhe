@@ -67,23 +67,23 @@ my_dict['my_set'].pop()  # Removing an arbitrary element from the set
 print(f"My set is {my_dict['my_set']}\n")
 
 # Print all keys in my_dict
-print("\n****************************\n")
 print("Print all keys in my_dict...\n")
 for key, value in my_dict.items():
-    print(f'{key}: {value}')
-    if isinstance(my_dict[key], dict):
-        print("\t... and its keys:")
-        for sub_key, sub_value in my_dict[key].items():
-            print(f'{sub_key}: {sub_value}')
+    if isinstance(value, dict):  # Check if the value is a dictionary
+        print(f'{key}:')  # Print the key which has a dictionary as its value
+        for sub_key, sub_value in value.items():  # Iterating over the nested dictionary
+            print(f'\t{sub_key}: {sub_value}')  # Print the keys and values of the nested dictionary
+    else:
+        print(f'{key}: {value}')  # If the value is not a dictionary, print the normal key-value pair
 
 # We can also check if the key is a tuple, and if so, print its elements:
 print("\nIf key is a tuple, print its elements...")
 for key, value in my_dict['dict'].items():
-    if isinstance(key, tuple):
+    if isinstance(key, tuple):  # Check if the key is a tuple
         print(f"Key '{key}' is a tuple with elements:")
-        for i, tuple_element in enumerate(key):
+        for i, tuple_element in enumerate(key):  # Enumerate through the tuple elements
             print(f"  Element {i}: {tuple_element}")
-        print(f"Value associated with tuple key '{key}': {value}")
+        print(f"Value associated with tuple key '{key}': {value}")  # Print the associated value
 
 print("\n****************************\n")
 
