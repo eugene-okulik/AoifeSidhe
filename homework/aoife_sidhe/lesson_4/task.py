@@ -324,7 +324,7 @@ def task_e_way_b():
                 # If the value is tuple, convert it into a comma-separated string
                 formatted_value = ', '.join(map(str, dict_value))
             # Check if it is a set or a list
-            elif isinstance(dict_value, set) or isinstance(dict_value, list):
+            elif isinstance(dict_value, (set, list)):
                 # If the value is a set or a list, convert each element into string and join with commas.
                 formatted_value = ', '.join([str(item) for item in dict_value])
             else:

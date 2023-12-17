@@ -328,7 +328,7 @@ def task_e_way_b():
             # Handle non-dictionary values
             if isinstance(dict_value, tuple):
                 formatted_value = ', '.join(map(str, dict_value))
-            elif isinstance(dict_value, set) or isinstance(dict_value, list):
+            elif isinstance(dict_value, (set, list)):
                 formatted_value = ', '.join([str(item) for item in dict_value])
             else:
                 formatted_value = dict_value
